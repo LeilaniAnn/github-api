@@ -16,7 +16,6 @@ def home():
         username = request.form['username']
         # because I exceeded my limit, lets make it authenticated
         resp = requests.get("https://api.github.com/users/"+ username +"/keys?state=closed&access_token=28204bde5c3dc023967893e7717f92d59c53bc3e")
-        print resp.status_code
         response_dict = resp.json()
         if resp.status_code != 200:
             error = "Username not found"
@@ -28,7 +27,6 @@ def home():
 @app.route('/<username>', methods=['GET'])
 def show_user_profile(username):
     resp = requests.get("https://api.github.com/users/"+ username +"/keys?state=closed&access_token=28204bde5c3dc023967893e7717f92d59c53bc3e")
-    print resp.status_code
     response_dict = resp.json()
     if resp.status_code != 200:
         error = "Username not found"
