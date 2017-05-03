@@ -1,7 +1,29 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-
-
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-default navbar-inverse" role="navigation">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <a class="navbar-text" href="#"><i class="fa fa-github fa-3x" aria-hidden="true" style="color:white;"></i></a>
+                    <form class="navbar-form navbar-left " role="search" method="post">
+                        <div class="form-group">
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Search GitHub" />
+                        </div>
+                        <button type="submit" class="btn">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    {% if error %}
+    <h1 class="alert alert-danger text-center">{{error}}</h1> {% else %} {% if username %}
+    <h1>{{username}}'s public keys</h1> {% endif %}
+    <br> {% for x in response_dict%}
+    <span style="font-weight:bold;">key ID:</span> {{x.id}}, <span style="font-weight:bold;">public key: </span>{{x.key | wordwrap(40,true,'\n')}}
+    <hr> {% endfor %} {% endif %}
+</div>
 {% endblock %}
