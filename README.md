@@ -29,3 +29,5 @@ To use API w/ [deployed app](https://fathomless-eyrie-43758.herokuapp.com)
 **OR** 	
 Navigate to
    `http://0.0.0.0:8000/<username>`
+   
+   **Example of user with more than one key: wycats**
