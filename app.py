@@ -18,7 +18,6 @@ def home():
         # +"/keys?state=closed&access_token=ACCESS_TOKEN")
         resp = requests.get("https://api.github.com/users/"+ username + '"')
         response_dict = resp.json()
-        print response_dict
         if resp.status_code != 200:
             error = "Username not found"
             return render_template('index.html', error=error)
